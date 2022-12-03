@@ -12,6 +12,7 @@ class Story(models.Model):
     active = models.BooleanField(default=True)
     created = models.DateTimeField(auto_now_add=True)
     like_count = models.IntegerField(default=0)
+
     objects = models.Manager()
     actives = StoryManager()
 
@@ -19,7 +20,7 @@ class Story(models.Model):
         ordering = ['-created']
 
     def __str__(self):
-        return f"Story by {self.user.phone_number}"
+        return f"Story by {self.user.username}"
 
     def get_absolute_url(self):
         return reverse("story_detail", kwargs={"id", self.id})
