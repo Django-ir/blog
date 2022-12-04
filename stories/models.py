@@ -10,6 +10,7 @@ class Story(models.Model):
     id = models.UUIDField(primary_key=True, default=uuid4, editable=False)
     user = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE, related_name='stories')
     content = models.FileField(upload_to='stories/')
+    caption = models.CharField(max_length=300, null=True, blank=True)
     active = models.BooleanField(default=True)
     created = models.DateTimeField(auto_now_add=True)
     like_count = models.IntegerField(default=0)
@@ -24,7 +25,7 @@ class Story(models.Model):
         return f"Story by {self.user.username}"
 
     def get_absolute_url(self):
-        return reverse("story_detail", kwargs={"id", self.id})
+        return reverse("detail_story", kwargs={"pk", self.id})
 
 
 class StoryArchive(models.Model):
