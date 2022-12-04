@@ -1,8 +1,10 @@
-from django.urls import path
-from .import views
+from django.urls import path, include
 
 app_name = 'story'
 
 urlpatterns = [
-    path('story/', views.StoryListView.as_view(), name='list_story'),
+    # views
+    path("story/", include("stories.urls_dir.urls")),
+    # api views
+    path("api/", include("stories.urls_dir.api_urls")),
 ]
