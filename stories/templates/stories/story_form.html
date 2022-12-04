@@ -1,0 +1,7 @@
+{% extends '_base_story.html' %}
+{% block content %}
+    {% csrf_token %}
+    {{ form.as_p }}
+    <br>
+    <input type="submit" value="send">
+{% endblock %}
