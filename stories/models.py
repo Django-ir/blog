@@ -1,4 +1,3 @@
-
 from uuid import uuid4
 from django.db import models
 from django.urls import reverse
@@ -11,7 +10,6 @@ class Story(models.Model):
     user = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE, related_name='stories')
     content = models.FileField(upload_to='stories/')
     caption = models.CharField(max_length=300, null=True, blank=True)
-    active = models.BooleanField(default=True)
     created = models.DateTimeField(auto_now_add=True)
     like_count = models.IntegerField(default=0)
 
