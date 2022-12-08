@@ -6,5 +6,5 @@ urlpatterns = [
     # views
     path("story/", include("stories.urls_dir.urls")),
     # api views
-    path("api/", include("stories.urls_dir.api_urls")),
+    path("api/story/", include("stories.urls_dir.api_urls")),
 ]
