@@ -4,15 +4,15 @@ from .serializers import StorySerializer
 
 
 class StoryListApiView(ListAPIView):
-    queryset = Story.objects.all()
+    queryset = Story.actives.all()
     serializer_class = StorySerializer
 
 
 class StoryDetailView(RetrieveAPIView):
-    queryset = Story.objects.all()
+    queryset = Story.actives.all()
     serializer_class = StorySerializer
 
 
 class StoryCreateView(CreateAPIView):
-    queryset = Story.objects.all()
+    queryset = Story.actives.all()
     serializer_class = StorySerializer
