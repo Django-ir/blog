@@ -1,5 +1,4 @@
 from rest_framework import serializers
-from django.contrib.auth.models import User
 from .models import Story
 
 
@@ -8,4 +7,4 @@ class StorySerializer(serializers.ModelSerializer):
 
     class Meta:
         model = Story
-        fields = ("id", "user", "content", "active", "created", "like_count")
+        fields = ("id", "user", "content", "created", "like_count")
